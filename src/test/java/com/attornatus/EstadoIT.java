@@ -1,6 +1,6 @@
 package com.attornatus;
 
-import com.attornatus.util.FileJson;
+import com.attornatus.util.BuscarArquivo;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -39,8 +39,8 @@ class EstadoIT {
         RestAssured.port = port;
         RestAssured.basePath = "/estados";
 
-        jsonCadastroCorreto = FileJson.getContentFileJson("/estadostest/cadastro_correto.json");
-        jsonCadastroIncorreto = FileJson.getContentFileJson("/estadostest/cadastro_incorreto.json");
+        jsonCadastroCorreto = BuscarArquivo.getContentFile("/estadostest/cadastro_correto.json");
+        jsonCadastroIncorreto = BuscarArquivo.getContentFile("/estadostest/cadastro_incorreto.json");
     }
 
     @Test //Status OK == 200

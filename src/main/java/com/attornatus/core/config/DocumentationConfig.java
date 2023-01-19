@@ -1,5 +1,6 @@
 package com.attornatus.core.config;
 
+import com.attornatus.util.BuscarArquivo;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -37,7 +38,7 @@ public class DocumentationConfig {
      */
     private Info getInfoAPI() {
         return new Info().title("API de Gerenciamento de Pessoas e Endereços")
-                .description(DESCRIPTION)
+                .description(BuscarArquivo.getContentFile("/desciption_api_swagger.txt"))
                 .version("1.0")
                 .contact(getContactAPI());
     }
@@ -54,11 +55,4 @@ public class DocumentationConfig {
                 .email("jhansenbarreto7@gmail.com")
                 .url("http://br.linkedin.com/in/jhansen-c-barreto");
     }
-
-    private static final String DESCRIPTION
-            = "Projeto implementado para o teste técnico do processo seletivo da Attornatus Procuradoria Digital "
-            + "para a vaga de Desenvolvedor Back End - Java (Júnior). API pública para gerenciar pessoas e endereços. "
-            + "Afim de demonstrar também a classe de erros na documentação, exemplificando como um erro é devolvido "
-            + "pela API, no endpoint de cadastro de cidades (POST) existe uma demonstração. O modelo de representação "
-            + "de erros está juntamente com os demais Schemas na seção do final da página.";
 }

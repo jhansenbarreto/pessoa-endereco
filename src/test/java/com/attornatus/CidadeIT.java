@@ -1,6 +1,6 @@
 package com.attornatus;
 
-import com.attornatus.util.FileJson;
+import com.attornatus.util.BuscarArquivo;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -38,7 +38,7 @@ class CidadeIT {
         RestAssured.port = port;
         RestAssured.basePath = "/cidades";
 
-        jsonCadastroUpdate = FileJson.getContentFileJson("/cidadestest/cadastro_update.json");
+        jsonCadastroUpdate = BuscarArquivo.getContentFile("/cidadestest/cadastro_update.json");
     }
 
     @Test //Status NOT_FOUND == 404
