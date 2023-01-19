@@ -26,10 +26,10 @@ public class CidadeInput {
     @NotBlank
     @Pattern(regexp = "[A-Za-zÁÉÍÓÚáéíóúÇçÃÕãõÂÊÔâêô ]+") //apenas letras, letras acentuadas e espaço
     @Schema(description = "Nome da cidade (apenas letras maiúsculas, minúsculas, acentuadas e espaços são permitidos)", example = "Aracaju")
-    public String nome;
+    private String nome;
 
     @Valid
     @NotNull
     @Schema(description = "Representação do ID de um estado")
-    public EstadoId estado;
+    private EstadoId estado;
 }

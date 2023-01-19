@@ -25,9 +25,9 @@ public class PessoaInput {
     @NotBlank
     @Pattern(regexp = "[A-Za-zÁÉÍÓÚáéíóúÇçÃÕãõÂÊÔâêô ]+") //apenas letras, letras acentuadas e espaço
     @Schema(description = "Nome da pessoa (apenas letras maiúsculas, minúsculas, acentuadas e espaços são permitidos)", example = "Maria Joaquina")
-    public String nome;
+    private String nome;
 
     @NotNull
     @Schema(description = "Data de nascimento da pessoa, no padrão yyyy-mm-dd", example = "1993-07-12")
-    public Date dataNascimento;
+    private Date dataNascimento;
 }

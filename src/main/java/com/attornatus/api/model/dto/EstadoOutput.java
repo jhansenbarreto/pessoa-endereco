@@ -16,11 +16,11 @@ import lombok.Setter;
 public class EstadoOutput {
 
     @Schema(description = "ID (identificador) do estado", example = "1")
-    public Long id;
+    private Long id;
     
     @Schema(description = "Nome do estado", example = "Sergipe")
-    public String nome;
+    private String nome;
     
     @Schema(description = "UF do estado", example = "SE")    
-    public String uf;
+    private String uf;
 }

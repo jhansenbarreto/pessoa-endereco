@@ -18,13 +18,13 @@ import lombok.Setter;
 public class PessoaOutput {
     
     @Schema(description = "ID (identificador) da pessoa", example = "1")
-    public Long id;
+    private Long id;
     
     @Schema(description = "Nome da pessoa", example = "Maria Joaquina")
-    public String nome;
+    private String nome;
     
     @Schema(description = "Data de nascimento da pessoa", example = "1993-07-12")
-    public Date dataNascimento;
+    private Date dataNascimento;
     
     /*
         Esta classe possuía uma lista de endereços, mas o atributo foi removido 

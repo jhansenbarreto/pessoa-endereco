@@ -16,11 +16,11 @@ import lombok.Setter;
 public class CidadeOutput {
 
     @Schema(description = "ID (identificador) da cidade", example = "1")
-    public Long id;
+    private Long id;
     
     @Schema(description = "Nome da cidade", example = "Aracaju")
-    public String nome;
+    private String nome;
     
     @Schema(description = "Representação do estado")
-    public EstadoOutput estado;
+    private EstadoOutput estado;
 }
