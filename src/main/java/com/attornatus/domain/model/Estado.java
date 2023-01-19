@@ -27,10 +27,10 @@ public class Estado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nome;
 
-    @Column(nullable = false, length = 2)
+    @Column(nullable = false, unique = true, length = 2)
     private String uf;
 
     @OneToMany(mappedBy = "estado")

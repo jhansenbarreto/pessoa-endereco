@@ -32,7 +32,7 @@ public class Endereco {
     @Column(nullable = false)
     private String logradouro;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 8)
     private String cep;
 
     @Column(nullable = false)

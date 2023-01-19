@@ -62,7 +62,7 @@ public class PessoaService {
      */
     @Transactional
     public void removerPessoa(Pessoa pessoa) {
-        //por causa do atributo lista de endereços estar marcado com CascadeType.REMOVE,
+        //por causa do atributo 'endereços' estar marcado com CascadeType.REMOVE,
         //todos os endereços de uma pessoa são excluídos juntamente com a pessoa
         repository.delete(pessoa);
     }

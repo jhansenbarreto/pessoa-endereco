@@ -1,9 +1,9 @@
 package com.attornatus;
 
-import com.attornatus.util.FileJson;
-
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+
+import org.hamcrest.Matchers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,53 +15,50 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
- * Classe de testes de integração para os endpoints relacionados a cidade.
+ * Classe de testes de integração para os endpoints relacionados a pessoa.
  * Apenas alguns testes para demonstração.
  *
  * @author Jhansen Barreto
  */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CidadeIT {
+class PessoaIT {
 
     @LocalServerPort
     private int port;
 
-    private String jsonCadastroUpdate;
+    private static final int ID_1_PESSOA_EXISTENTE = 1;
+    private static final String NOME_1_PESSOA_EXISTENTE = "Peter Parker";
 
-    private static final int ID_INEXISTENTE = 0;
-    private static final int ID_CIDADE_EXISTENTE = 1;
-
+    private static final int ID_2_PESSOA_EXISTENTE = 2;
+    
     @BeforeEach
     public void setUp() {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
         RestAssured.port = port;
-        RestAssured.basePath = "/cidades";
-
-        jsonCadastroUpdate = FileJson.getContentFileJson("/cidadestest/cadastro_update.json");
+        RestAssured.basePath = "/pessoas";
     }
 
-    @Test //Status NOT_FOUND == 404
-    public void statusNotFoundConsultandoCidadeInexistente() {
+    @Test //Status OK == 200
+    public void statusOkNaConsultaComConteudoCorreto() {
         RestAssured.given()
-                .pathParam("id", ID_INEXISTENTE)
+                .pathParam("id", ID_1_PESSOA_EXISTENTE)
                 .accept(ContentType.JSON)
                 .when()
                 .get("/{id}")
                 .then()
-                .statusCode(HttpStatus.NOT_FOUND.value());
+                .statusCode(HttpStatus.OK.value())
+                .body("nome", Matchers.equalTo(NOME_1_PESSOA_EXISTENTE));
     }
-
-    @Test //Status OK == 200
-    public void statusOkAoEditarUmaCidade() {
+    
+    @Test //Status NO_CONTENT == 204
+    public void statusNoContentAoExcluirPessoaExistente() {
         RestAssured.given()
-                .body(jsonCadastroUpdate)
-                .pathParam("id", ID_CIDADE_EXISTENTE)
-                .contentType(ContentType.JSON)
+                .pathParam("id", ID_2_PESSOA_EXISTENTE)
                 .accept(ContentType.JSON)
                 .when()
-                .put("/{id}")
+                .delete("/{id}")
                 .then()
-                .statusCode(HttpStatus.OK.value());
+                .statusCode(HttpStatus.NO_CONTENT.value());
     }
 }
