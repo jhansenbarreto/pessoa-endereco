@@ -1,11 +1,16 @@
 package com.attornatus.api.controller.openapi;
 
+import com.attornatus.api.exceptionhandler.Error;
+
 import com.attornatus.api.model.dto.CidadeInput;
 import com.attornatus.api.model.dto.CidadeOutput;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
@@ -30,6 +35,9 @@ public interface CidadeControllerOpenAPI {
             ) Long cidadeId
     );
 
+    @ApiResponse(responseCode = "400", content = {
+        @Content(schema = @Schema(implementation = Error.class))
+    })
     @Operation(summary = "Cadastra uma nova cidade")
     public CidadeOutput adicionar(
             @RequestBody(

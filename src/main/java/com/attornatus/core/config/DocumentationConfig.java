@@ -37,7 +37,7 @@ public class DocumentationConfig {
      */
     private Info getInfoAPI() {
         return new Info().title("API de Gerenciamento de Pessoas e Endereços")
-                .description(DESCRIPTION_API)
+                .description(DESCRIPTION)
                 .version("1.0")
                 .contact(getContactAPI());
     }
@@ -55,9 +55,10 @@ public class DocumentationConfig {
                 .url("http://br.linkedin.com/in/jhansen-c-barreto");
     }
 
-    private final String DESCRIPTION_API
-            = "Projeto implementado para o teste técnico "
-            + "do processo seletivo da Attornatus Procuradoria Digital "
-            + "para a vaga de Desenvolvedor Back End - Java (Júnior). "
-            + "API pública para gerenciar pessoas e endereços.";
+    private static final String DESCRIPTION
+            = "Projeto implementado para o teste técnico do processo seletivo da Attornatus Procuradoria Digital "
+            + "para a vaga de Desenvolvedor Back End - Java (Júnior). API pública para gerenciar pessoas e endereços. "
+            + "Afim de demonstrar também a classe de erros na documentação, exemplificando como um erro é devolvido "
+            + "pela API, no endpoint de cadastro de cidades (POST) existe uma demonstração. O modelo de representação "
+            + "de erros está juntamente com os demais Schemas na seção do final da página.";
 }

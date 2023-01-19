@@ -1,7 +1,7 @@
 package com.attornatus.api.model.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
-import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,10 +14,21 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Schema(description = "Representação de uma pessoa fornecida na solicitação do recurso.")
 public class PessoaOutput {
     
+    @Schema(description = "ID (identificador) da pessoa", example = "1")
     public Long id;
+    
+    @Schema(description = "Nome da pessoa", example = "Maria Joaquina")
     public String nome;
+    
+    @Schema(description = "Data de nascimento da pessoa", example = "1993-07-12")
     public Date dataNascimento;
-    public List<EnderecoOutput> enderecos;
+    
+    /*
+        Esta classe possuía uma lista de endereços, mas o atributo foi removido 
+        para os endereços da pessoa serem consultados apenas no endpoint específico
+        para essa solicitação.
+    */
 }

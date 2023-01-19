@@ -1,5 +1,6 @@
 package com.attornatus.api.model.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,9 +12,15 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Schema(description = "Representação de uma cidade fornecida na solicitação do recurso.")
 public class CidadeOutput {
 
+    @Schema(description = "ID (identificador) da cidade", example = "1")
     public Long id;
+    
+    @Schema(description = "Nome da cidade", example = "Aracaju")
     public String nome;
+    
+    @Schema(description = "Representação do estado")
     public EstadoOutput estado;
 }

@@ -1,6 +1,7 @@
 package com.attornatus.api.model.dto;
 
 import com.attornatus.api.model.dto.id.EstadoId;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -19,13 +20,16 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Schema(description = "Representação dos dados de entrada para cadastro ou atualização de uma cidade")
 public class CidadeInput {
 
     @NotBlank
     @Pattern(regexp = "[A-Za-zÁÉÍÓÚáéíóúÇçÃÕãõÂÊÔâêô ]+") //apenas letras, letras acentuadas e espaço
+    @Schema(description = "Nome da cidade (apenas letras maiúsculas, minúsculas, acentuadas e espaços são permitidos)", example = "Aracaju")
     public String nome;
 
     @Valid
     @NotNull
+    @Schema(description = "Representação do ID de um estado")
     public EstadoId estado;
 }
