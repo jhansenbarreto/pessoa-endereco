@@ -3,6 +3,7 @@ package com.attornatus.domain.service;
 import com.attornatus.domain.exception.EntidadeNaoEncontradaException;
 import com.attornatus.domain.model.Endereco;
 import com.attornatus.domain.repository.EnderecoRepository;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -77,6 +78,21 @@ public class EnderecoService {
             }
         });
         repository.flush();
+    }
+
+    /**
+     * Em caso de exclusão de um endereço principal, se a lista de endereços de
+     * uma pessoa não estiver vazia, o primeiro elemento da lista se torna o
+     * novo principal.
+     *
+     * @param enderecos (lista de endereços de uma pessoa)
+     */
+    public void elegerNovoPrincipal(List<Endereco> enderecos) {
+        if (enderecos != null && !enderecos.isEmpty()) {
+            var primeiro = enderecos.get(0);
+            primeiro.tornarPrincipal();
+            repository.flush();
+        }
     }
 
     /**

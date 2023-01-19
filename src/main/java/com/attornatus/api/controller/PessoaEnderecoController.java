@@ -84,8 +84,14 @@ public class PessoaEnderecoController implements PessoaEnderecoControllerOpenAPI
         //consulta para verificar a existência da pessoa com o ID informado
         var pessoa = servicePessoa.findById(pessoaId);
         var endereco = serviceEndereco.findById(enderecoId, pessoa.getId());
+        var principal = endereco.getPrincipal();
 
         serviceEndereco.removerEndereco(endereco);
+
+        //se o endereço excluído for um principal, um novo é eleito
+        if (principal) {
+            serviceEndereco.elegerNovoPrincipal(pessoa.getEnderecos());
+        }
     }
 
     @Override
