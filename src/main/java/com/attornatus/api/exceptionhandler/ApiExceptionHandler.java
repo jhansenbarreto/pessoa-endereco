@@ -1,5 +1,6 @@
 package com.attornatus.api.exceptionhandler;
 
+import com.attornatus.domain.exception.DadosDuplicadosException;
 import com.attornatus.domain.exception.EntidadeEmUsoException;
 import com.attornatus.domain.exception.EntidadeNaoEncontradaException;
 
@@ -180,11 +181,19 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, erro.build(), new HttpHeaders(), status, request);
     }
 
+    @ExceptionHandler(DadosDuplicadosException.class)
+    public ResponseEntity<?> handleDadosDuplicados(DadosDuplicadosException ex, WebRequest request) {
+        var status = HttpStatus.BAD_REQUEST;
+        var erro = builderError(status, ex.getMessage());
+
+        return handleExceptionInternal(ex, erro.build(), new HttpHeaders(), status, request);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGeneric(Exception ex, WebRequest request) {
         var status = HttpStatus.INTERNAL_SERVER_ERROR;
         var erro = builderError(status, MSG_GENERICA_ERRO);
-
+        
         return handleExceptionInternal(ex, erro.build(), new HttpHeaders(), status, request);
     }
 
@@ -202,7 +211,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(detail)
                 .timestamp(OffsetDateTime.now());
     }
-    
+
     /**
      * Une os campos referentes a um objeto causador de um erro. Exemplo: O
      * objeto 'endereco' foi informado com a propriedade 'cep' em branco. O

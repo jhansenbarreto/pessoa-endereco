@@ -1,5 +1,6 @@
 package com.attornatus.domain.service;
 
+import com.attornatus.domain.exception.DadosDuplicadosException;
 import com.attornatus.domain.exception.EntidadeEmUsoException;
 import com.attornatus.domain.exception.EntidadeNaoEncontradaException;
 import com.attornatus.domain.model.Estado;
@@ -56,7 +57,39 @@ public class EstadoService {
      */
     @Transactional
     public Estado save(Estado estado) {
+        estado.setNome(estado.getNome().toUpperCase());
+        estado.setUf(estado.getUf().toUpperCase());
+
         return repository.save(estado);
+    }
+
+    /**
+     * Evita o cadastro ou atualização de um estado com dados duplicados, já que
+     * nome e uf são colunas únicas. Se for um novo cadastro, o parâmetro 'id'
+     * deve receber o valor 'null'. Caso contrário, deve receber o ID do estado
+     * em questão.
+     *
+     * @param id (ID do estado ou null)
+     * @param nome (nome do estado)
+     * @param uf (uf do estado)
+     */
+    public void evitaEstadoDuplicado(Long id, String nome, String uf) {
+        List<Estado> estados = repository.findByNomeOrUf(nome, uf);
+
+        if (!estados.isEmpty()) {
+            //em caso de novo cadastro
+            if (id == null) {
+                throw new DadosDuplicadosException("Dados duplicados. Nome e/ou UF já cadastrado(s).");
+
+            } else {
+                //em caso de atualização de cadastro
+                estados.forEach(item -> {
+                    if (!item.getId().equals(id)) {
+                        throw new DadosDuplicadosException("Dados duplicados. Nome e/ou UF já cadastrado(s).");
+                    }
+                });
+            }
+        }
     }
 
     /**

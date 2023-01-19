@@ -66,6 +66,8 @@ public class EstadoController implements EstadoControllerOpenAPI {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public EstadoOutput adicionar(@RequestBody @Valid EstadoInput input) {
+        service.evitaEstadoDuplicado(null, input.getNome().toUpperCase(), input.getUf().toUpperCase());
+        
         var estado = convertEstado.toDomainModel(input);
         estado = service.save(estado);
 
@@ -75,7 +77,9 @@ public class EstadoController implements EstadoControllerOpenAPI {
     @Override
     @PutMapping("/{estadoId}")
     public EstadoOutput atualizar(@PathVariable Long estadoId, @RequestBody @Valid EstadoInput input) {
-        var estado = service.findById(estadoId);
+        var estado = service.findById(estadoId);        
+        service.evitaEstadoDuplicado(estadoId, input.getNome().toUpperCase(), input.getUf().toUpperCase());
+        
         convertEstado.copy(input, estado);
         service.save(estado);
 
