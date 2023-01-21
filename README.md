@@ -63,7 +63,7 @@ A documentação completa do projeto foi feita utilizando as ferramentas da bibl
 - ``JUnit 5 (para testes programáticos)``
 - ``Swagger UI / Open API 3 (para documentação)``
 - ``Padrão de Projeto DTO (Data Transfer Object)``
-- ``Padrão de Projeto MVC (Model View Controller)``
+- ``Modelagem com DDD (Domain-Driven Design)``
 
 ## :rotating_light: Observações
 
