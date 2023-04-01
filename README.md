@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/JUnit-v5.9.1-red"/>
 </p>
   
->*Este projeto foi implementado na etapa do teste técnico no processo seletivo da ``Attornatus Procuradoria Digital`` para a vaga de ``Desenvolvedor Back End - Java (Júnior)``. Seguindo as especificações dadas no teste, o projeto é uma simples API destinada ao cadastro de Pessoas e Endereços, servindo as funcionalidades obrigatórias exigidas no teste e outras implementadas pelo desenvolvedor da API por decisão de projeto. Para acessar o documento do teste fornecido pela empresa e verificar as respostas das perguntas abertas <a href="https://drive.google.com/file/d/1bM_WzIVR38oMpyVLJItnWYFwnAhuI1ss/view?usp=sharing">clique aqui</a>.*
+>*Este projeto foi implementado na etapa do teste técnico no processo seletivo da ``Attornatus Procuradoria Digital`` para a vaga de ``Desenvolvedor Back End - Java (Júnior)``. Seguindo as especificações dadas no teste, o projeto é uma simples API destinada ao cadastro de Pessoas e Endereços, servindo as funcionalidades obrigatórias exigidas no teste e outras implementadas pelo desenvolvedor da API por decisão de projeto.*
   
 O projeto conta com o CRUD completo das seguintes entidades: 
 
@@ -16,7 +16,7 @@ O projeto conta com o CRUD completo das seguintes entidades:
 - ``Pessoas``
 - ``Endereços``
 
-A documentação completa do projeto foi feita utilizando as ferramentas da biblioteca ``Spring Doc``, dependência do projeto, através do ``Swagger UI`` com as especificações do ``Open API 3.0``, afim de prover maior entendimento para os consumidores da API. Para acessar a documentação, faça o clone do projeto para a sua máquina, inicie a aplicação *(pode demorar um pouco, pois será feito o download das dependências na primeira vez)* e após subir o serviço abra seu navegador e digite: ``http://localhost:8080/swagger-ui/index.html``. Se preferir, os testes podem ser feitos na própria página da documentação, onde contém as explicações devidas.
+A documentação completa do projeto foi feita utilizando as ferramentas da biblioteca ``Spring Doc``, dependência do projeto, através do ``Swagger UI`` com as especificações do ``Open API 3.0``, afim de prover maior entendimento para os consumidores da API. Para acessar a documentação, faça o clone do projeto para a sua máquina, inicie a aplicação *(pode demorar um pouco, pois será feito o download das dependências na primeira vez)* e após subir o serviço abra seu navegador e digite: ``http://localhost:8080/swagger-ui/index.html``. Se preferir, os testes podem ser feitos na própria página da documentação, onde contém as explicações devidas para consumir cada *endpoint*.
 
 ## :hammer: Funcionalidades
 
@@ -50,7 +50,7 @@ A documentação completa do projeto foi feita utilizando as ferramentas da bibl
 - Lista todos os Endereços de uma Pessoa
 - Edita endereços
 - Exclui endereços
-- Marca um endereço como principal
+- Permite marcar um endereço como principal
 - > :bulb: **Detalhes**: *CEP aceita apenas 8 caracteres numéricos. Todo primeiro endereço cadastrado é marcado como principal automaticamente. Sempre que um endereço principal for excluído, caso ainda existam outros, o primeiro da lista se torna o novo principal.*
 
 ## :heavy_check_mark: Técnicas e Tecnologias Utilizadas
@@ -73,6 +73,6 @@ A documentação completa do projeto foi feita utilizando as ferramentas da bibl
 
 ## :construction_worker: Autor
 
-| :technologist: Desenvolvedor |:globe_with_meridians: Links|
-|-----------------------------:|----------------------------|
+| :technologist: Desenvolvedor |:globe_with_meridians: Links Úteis|
+|-----------------------------:|----------------------------------|
 |<p align="center"><img src="https://avatars.githubusercontent.com/u/13790608?v=4" width=115></br><sub>Jhansen Barreto</sub></p>|<ul><li><a href="https://github.com/jhansenbarreto?tab=repositories">GitHub</a></li><li><a href="https://br.linkedin.com/in/jhansen-c-barreto">LinkedIn</a></li><li><a href="https://www.instagram.com/jhansenbarreto/">Instagram</a></li></ul>|
