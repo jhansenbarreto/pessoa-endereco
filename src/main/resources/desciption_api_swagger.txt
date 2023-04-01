@@ -1,5 +1,5 @@
 Projeto implementado para o teste técnico do processo seletivo da Attornatus Procuradoria Digital 
-para a vaga de Desenvolvedor Back End - Java (Júnior). API pública para gerenciar pessoas e endereços. 
+para a vaga de Desenvolvedor Back End - Java. API pública para gerenciar pessoas e endereços. 
 Afim de demonstrar também a classe de erros na documentação, exemplificando como um erro é devolvido 
 pela API, no endpoint de cadastro de cidades (POST) existe uma demonstração. O modelo de representação 
 de erros está juntamente com os demais Schemas na seção do final da página. Caso deseje realizar testes, 
