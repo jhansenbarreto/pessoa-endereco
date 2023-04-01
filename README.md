@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/JUnit-v5.9.1-red"/>
 </p>
   
->*Este projeto foi implementado na etapa do teste técnico no processo seletivo da ``Attornatus Procuradoria Digital`` para a vaga de ``Desenvolvedor Back End - Java (Júnior)``. Seguindo as especificações dadas no teste, o projeto é uma simples API destinada ao cadastro de Pessoas e Endereços, servindo as funcionalidades obrigatórias exigidas no teste e outras implementadas pelo desenvolvedor da API por decisão de projeto.*
+>*Este projeto foi implementado na etapa do teste técnico no processo seletivo da ``Attornatus Procuradoria Digital`` para a vaga de ``Desenvolvedor Back End - Java``. Seguindo as especificações dadas no teste, o projeto é uma simples API destinada ao cadastro de Pessoas e Endereços, servindo as funcionalidades obrigatórias exigidas no teste e outras implementadas pelo desenvolvedor da API por decisão de projeto.*
   
 O projeto conta com o CRUD completo das seguintes entidades: 
 
